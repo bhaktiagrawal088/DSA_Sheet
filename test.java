@@ -1,51 +1,50 @@
+// import java.util.ArrayList;
+// import java.util.List;
+
+// public class test {
+//     public static void main(String[] args) {
+//         int[] nums = { 1, 2, 3 };
+//         List<List<Integer>> powerSet = generatePowerSet(nums);
+
+//         System.out.println("Power Set: " + powerSet);
+//     }
+
+//     // Function to generate the power set of a given array
+//     static List<List<Integer>> generatePowerSet(int[] nums) {
+//         List<List<Integer>> result = new ArrayList<>();
+//         generatePowerSetHelper(nums, 0, new ArrayList<>(), result);
+//         return result;
+//     }
+
+//     // Helper function for generating power set using recursion
+//     static void generatePowerSetHelper(int[] nums, int index, List<Integer> current, List<List<Integer>> result) {
+//         // Add the current subset to the result
+//         result.add(new ArrayList<>(current));
+
+//         // Generate subsets by including the current element
+//         for (int i = index; i < nums.length; i++) {
+//             current.add(nums[i]);
+//             generatePowerSetHelper(nums, i + 1, current, result);
+//             current.remove(current.size() - 1);
+//         }
+//     }
+// }
+
 import java.util.*;
 
-public class test {
-
+class test {
     public static void main(String[] args) {
-        // * Basic Approach **
-
-        // ** Using Recursion ***
-        // int[] arr = { 1, 2, 3, 4 };
-        // int[] reversedArray = printArrayInReverse(0, arr.length - 1, arr);
-        // System.out.print("Reverse Array using recursion : ");
-        // printArray(reversedArray);
-
-        // }
-
-        // static int[] printArrayInReverse(int start, int end, int arr[]) {
-        // if (start <= end) {
-        // int temp = arr[start];
-        // arr[start] = arr[end];
-        // arr[end] = temp;
-
-        // printArrayInReverse(start + 1, end - 1, arr);
-        // }
-        // return arr;
-        // }
-
-        // static void printArray(int[] arr) {
-        // for (int i : arr) {
-        // System.out.print(i + " ");
-        // }
-        // System.out.println();
-        // }
-        int[] arr = { 1, 2, 3, 4, 5 };
-        int[] reversearr = printArrayInReverse(0, arr.length - 1, arr);
-        System.out.println("Reverse array using recursion : ");
-        for (int i : reversearr) {
-            System.out.print(i + " ");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n = s.nextInt();
+        int total = n * n;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int val = total - ((i * n) + (n - j));
+                System.out.print(val + " ");
+            }
+            System.out.println();
         }
-    }
 
-    static int[] printArrayInReverse(int start, int end, int arr[]) {
-        if (start >= end) {
-            return arr;
-        } else {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            printArrayInReverse(start + 1, end - 1, arr);
-        }
     }
 }

@@ -1,9 +1,8 @@
-import java.util.*;
 
 public class reversearray {
 
     public static void main(String[] args) {
-        // ******** Basic Approach ***********
+        // // ******** Basic Approach ***********
         // int[] arr = { 2, 3, 4, 6, 7 };
         // System.out.println("Original array is: ");
         // for (int i = 0; i < arr.length; i++)
@@ -21,6 +20,8 @@ public class reversearray {
         // }
         // for (int i = 0; i < arr.length; i++)
         // System.out.print(arr[i] + " ");
+        // }
+        // }
 
         // ************ Using Recursion ***********
         // int[] arr = { 1, 2, 3, 4 };
@@ -36,48 +37,45 @@ public class reversearray {
         // System.out.print(arr[end] + " ");
         // printArrayInReverse(start, end - 1, arr);
         // }
+        // }
 
         // ******** More Approach ********
 
+        // int[] arr = { 1, 2, 3, 4, 5 };
+        // printArrayInReverse(0, arr.length - 1, arr);
+        // System.out.println("Reverse array using recursion : ");
+        // for (int i : arr) {
+        // System.out.print(i + " ");
+        // }
+        // }
+
+        // static void printArrayInReverse(int start, int end, int arr[]) {
+        // if (start >= end) {
+        // return;
+        // }
+        // int temp = arr[start];
+        // arr[start] = arr[end];
+        // arr[end] = temp;
+        // printArrayInReverse(start + 1, end - 1, arr);
+        // }
+        // }
+
+        // ******** using single variable *******
         int[] arr = { 1, 2, 3, 4, 5 };
-        int[] reversearr = printArrayInReverse(0, arr.length - 1, arr);
-        System.out.println("Reverse array using recursion : ");
-        for (int i : reversearr) {
-            System.out.print(i + " ");
+        int n = arr.length;
+        printArrayInReverse(0, arr, n);
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 
-    static int[] printArrayInReverse(int start, int end, int arr[]) {
-        if (start >= end) {
-            return arr;
+    static void printArrayInReverse(int i, int arr[], int n) {
+        if (i >= n / 2) {
+            return;
         }
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        printArrayInReverse(start + 1, end - 1, arr);
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+        printArrayInReverse(i + 1, arr, n);
     }
 }
-
-// ******** using single variable *******
-// int[] arr = { 1, 2, 3, 4, 5 };
-// int n = 5;
-// printArrayInReverse(0, arr, n);
-// for (int i = 0; i < arr.length; i++) {
-// System.out.print(arr[i] + "");
-// }
-// }
-
-// static void printArrayInReverse(int i, int arr[], int n) {
-// if (i >= arr.length / 2) {
-// return;
-// }
-// swap(arr[i], arr[n - i - 1]);
-// printArrayInReverse(i + 1, arr, arr.length);
-// }
-
-// static void swap(int a, int b[]) {
-// int temp = b[0];
-// b[0] = b[a];
-// b[a] = temp;
-// }
-// }

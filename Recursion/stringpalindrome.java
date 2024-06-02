@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class stringpalindrome {
     public static void main(String[] args) {
@@ -20,14 +19,14 @@ public class stringpalindrome {
         // }
 
         // *** using recursion ***
-        String name = "madam";
+        String name = "radar";
         System.out.println(Pali(0, name));
     }
 
     static boolean Pali(int i, String name) {
-        if (i < name.length() / 2) {
+        if (i >= name.length() / 2) {
             return true;
-        } else if (name[i] != name[name.length() - i - 1]) {
+        } else if ((name.charAt(i)) != (name.charAt(name.length() - 1 - i))) {
             return false;
         }
         return Pali(i + 1, name);

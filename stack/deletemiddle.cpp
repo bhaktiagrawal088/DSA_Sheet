@@ -25,8 +25,10 @@ int main(){
     str.push(5);    
     str.push(9);
     str.push(6);  
+    str.push(4);
 
     int size = str.size();
+    cout<<size;
     int count = 0;
     deletemiddle(str , count , size);
 
