@@ -4,8 +4,8 @@ int printName(int name){
     if(name < 1){
         return -1;
     }else{
-        printName(name-1);
         cout<<"Bhakti ";
+        printName(name-1);
         return 0;
     }
 }
